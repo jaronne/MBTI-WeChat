@@ -1,29 +1,24 @@
-import { Component, PropsWithChildren } from 'react'
-import { View, Text } from '@tarojs/components'
-import {AtButton} from 'taro-ui'
-
-import "taro-ui/dist/style/components/button.scss" // 按需引入
+import { View, Image } from '@tarojs/components'
+import {AtButton} from "taro-ui";
+import headerBg from "../../asserts/headerBg.jpg";
 import './index.scss'
+import GlobalFooter from "../../components/GlobalFooter";
 
-export default class Index extends Component<PropsWithChildren> {
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  render () {
-    return (
-      <View className='index'>
-        <Text>Hello world!</Text>
-        <AtButton type='primary'>I need Taro UI</AtButton>
-        <Text>Taro UI 支持 Vue 了吗？</Text>
-        <AtButton type='primary' circle>支持</AtButton>
-        <Text>共建？</Text>
-        <AtButton type='secondary' circle>来</AtButton>
+/**
+ * 主页
+ */
+export default () => {
+  return (
+    <View className='indexPage'>
+      <View className='at-article__h1 title'>
+        MBTI 性格测试
       </View>
-    )
-  }
-}
+      <View className='at-article__h2 subTitle'>
+        看看你是十六型人格的哪一种
+      </View>
+      <AtButton type='primary' circle className='enterBtn'>开始测试</AtButton>
+      <Image className='headerBg' src={headerBg} />
+      <GlobalFooter />
+    </View>
+  );
+};
