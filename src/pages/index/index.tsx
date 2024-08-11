@@ -1,8 +1,10 @@
+import Taro from "@tarojs/taro";
 import { View, Image } from '@tarojs/components'
 import {AtButton} from "taro-ui";
 import headerBg from "../../asserts/headerBg.jpg";
 import './index.scss'
 import GlobalFooter from "../../components/GlobalFooter";
+
 
 /**
  * 主页
@@ -16,7 +18,12 @@ export default () => {
       <View className='at-article__h2 subTitle'>
         看看你是十六型人格的哪一种
       </View>
-      <AtButton type='primary' circle className='enterBtn'>开始测试</AtButton>
+      <AtButton type='primary' circle className='enterBtn' onClick={() => {
+        Taro.navigateTo({url: '/pages/quiz/index'})
+      }}
+      >
+        开始测试
+      </AtButton>
       <Image className='headerBg' src={headerBg} />
       <GlobalFooter />
     </View>
